@@ -4,7 +4,11 @@ Ensure that devise will update a last_seen_at flag on the model whenever user is
 
 # Usage
 
-Add migration adding `:last_seen_at column` to your model:
+Generate migration that adds `:last_seen_at column` to your model using generator:
+
+  rails g devise_lastseenable User
+
+Or add migration manually:
 
   class DeviseAddLastseenableAccount < ActiveRecord::Migration
     def self.up
