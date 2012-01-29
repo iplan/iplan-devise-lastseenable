@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
     "lib/rego-devise-lastseenable/hooks.rb",
     "lib/rego-devise-lastseenable/model.rb",
     "lib/rego-devise-lastseenable/rails.rb",
+    "rego-devise-lastseenable.gemspec",
     "spec/rego-devise-lastseenable_spec.rb",
     "spec/spec_helper.rb"
   ]
