@@ -6,28 +6,28 @@ Ensure that devise will update a last_seen_at flag on the model whenever user is
 
 Generate migration that adds `:last_seen_at column` to your model using generator:
 
-  rails g devise_lastseenable User
+    rails g devise_lastseenable User
 
 Or add migration manually:
 
-  class DeviseAddLastseenableAccount < ActiveRecord::Migration
-    def self.up
-      add_column :accounts, :last_seen_at, :datetime
-    end
+    class DeviseAddLastseenableAccount < ActiveRecord::Migration
+      def self.up
+        add_column :accounts, :last_seen_at, :datetime
+      end
 
-    def self.down
-      remove_column :accounts, :last_seen_at
+      def self.down
+        remove_column :accounts, :last_seen_at
+      end
     end
-  end
 
 
 In your model, add `:lastseenable` as such:
 
-  class User < ActiveRecord::Base
+    class User < ActiveRecord::Base
 
-    devise ..., :lastseenable
+      devise ..., :lastseenable
 
-  end
+    end
 
 
 In devise.rb you can configure `lastseenable_interval` parameter (defaults to 5 minutes), which defines the interval (in minutes) to update `last_seent_at` attribute of your model:
