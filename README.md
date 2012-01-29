@@ -32,8 +32,8 @@ In your model, add `:lastseenable` as such:
 
 In devise.rb you can configure `lastseenable_interval` parameter (defaults to 5 minutes), which defines the interval (in minutes) to update `last_seent_at` attribute of your model:
 
-  # Configure lastseenable interval to update last_seen_at every two minutes
-  config.lastseenable_interval = 2
+    # Configure lastseenable interval to update last_seen_at every two minutes
+    config.lastseenable_interval = 2
 
 
 # Release notes
