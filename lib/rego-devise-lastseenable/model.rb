@@ -6,8 +6,7 @@ module Devise
       def stamp!
         interval = self.class.lastseenable_interval
         if self.last_seen_at.to_i < (Time.now - interval.minutes).to_i
-          self.last_seen_at = DateTime.now
-          self.save!
+          self.update_column :last_seen_at, DateTime.now
         end
       end
 
