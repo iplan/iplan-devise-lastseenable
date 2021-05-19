@@ -1,4 +1,4 @@
-# rego-devise-lastseenable
+# iplan-devise-lastseenable
 
 Ensure that devise will update a last_seen_at flag on the model whenever user is authed.
 
@@ -11,12 +11,9 @@ Generate migration that adds `:last_seen_at column` to your model using generato
 Or add migration manually:
 
     class DeviseAddLastseenableAccount < ActiveRecord::Migration
-      def self.up
+      def change
         add_column :accounts, :last_seen_at, :datetime
-      end
-
-      def self.down
-        remove_column :accounts, :last_seen_at
+        add_column :accounts, :last_seen_ip, :string
       end
     end
 
@@ -25,7 +22,7 @@ In your model, add `:lastseenable` as such:
 
     class User < ActiveRecord::Base
 
-      devise ..., :lastseenable
+      devise ..., :iplan_lastseenable
 
     end
 
@@ -33,14 +30,14 @@ In your model, add `:lastseenable` as such:
 In devise.rb you can configure `lastseenable_interval` parameter (defaults to 5 minutes), which defines the interval (in minutes) to update `last_seent_at` attribute of your model:
 
     # Configure lastseenable interval to update last_seen_at every two minutes
-    config.lastseenable_interval = 2
+    config.lastseenable_interval = 2.minutes
 
 
 # Release notes
 
 * 0.1.0 - first release
 
-# Contributing to rego-ruby-ext
+# Contributing to iplan-devise-lastseenable
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
